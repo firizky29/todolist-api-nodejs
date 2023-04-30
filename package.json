@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Back-end API Node.js case Todo-list",
 	"main": "index.js",
+  	"type": "module",
 	"scripts": {
 		"dev": "nodemon -L index.js",
 		"start": "node index.js"
@@ -21,6 +22,7 @@
 	},
 	"homepage": "https://github.com/firizky29/todolist-api-nodejs#readme",
 	"dependencies": {
+		"@prisma/client": "^4.13.0",
 		"bcrypt": "^5.1.0",
 		"body-parser": "^1.20.2",
 		"cors": "^2.8.5",

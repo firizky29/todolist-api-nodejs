@@ -6,6 +6,39 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+// Table activities
+// • activity_id
+// • title
+// • email
+// • created_at …
+// Table todos
+// • todo_id
+// • activity_group_id
+// • title
+// • priority
+// • is_active
+// • created_at ...
+
+model activities {
+  id        Int      @id @default(autoincrement()) @map("activity_id")
+  title     String
+  email     String
+  todos     todos[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model todos {
+  id                Int        @id @default(autoincrement()) @map("todo_id")
+  activity_group_id Int
+  title             String
+  priority          Int
+  is_active         Boolean
+  createdAt         DateTime   @default(now()) @map("created_at")
+  updatedAt         DateTime   @updatedAt @map("updated_at")
+  activities        activities @relation(fields: [activity_group_id], references: [id])
 }
