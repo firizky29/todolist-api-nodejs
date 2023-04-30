@@ -1,1 +1,1 @@
-docker run -d -e MYSQL_HOST=host.docker.internal -e MYSQL_USER=admin -e MYSQL_PASSWORD=root -e MYSQL_DBNAME=todo4 -p 3030:3030 --name todolist-api firizky/todolist-api:latest 
+docker run -d -e MYSQL_HOST=host.docker.internal -e MYSQL_USER=admin -e MYSQL_PASSWORD=root -e MYSQL_DBNAME=be-nodejs -p 3030:3030 --name todolist-api firizky29/todolist-api-nodejs:latest 

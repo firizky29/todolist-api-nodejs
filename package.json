@@ -3,10 +3,11 @@
 	"version": "1.0.0",
 	"description": "Back-end API Node.js case Todo-list",
 	"main": "index.js",
-  	"type": "module",
+	"type": "module",
 	"scripts": {
 		"dev": "nodemon -L index.js",
-		"start": "node index.js"
+		"start": "node index.js",
+		"start:prod": "npx prisma migrate deploy && npm run start"
 	},
 	"repository": {
 		"type": "git",
@@ -26,6 +27,7 @@
 		"body-parser": "^1.20.2",
 		"cors": "^2.8.5",
 		"express": "^4.18.2",
+		"memory-cache": "^0.2.0",
 		"morgan": "^1.10.0"
 	},
 	"devDependencies": {

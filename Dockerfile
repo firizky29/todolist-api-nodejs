@@ -6,4 +6,4 @@ RUN npm install
 COPY . .
 RUN npx prisma generate
 EXPOSE 3030
-CMD npm start
+CMD npm run start:prod

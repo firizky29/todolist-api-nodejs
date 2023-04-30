@@ -2,6 +2,8 @@
 import ResponseBuilder from "../utils/Response.js";
 import BaseController from "./BaseController.js";
 
+import cache from 'memory-cache';
+
 
 class ToDoController extends BaseController {
     getAll = async (req, res) => {
@@ -13,11 +15,22 @@ class ToDoController extends BaseController {
                     ResponseBuilder.success(todos)
                 );
             } else {
-                const todos = await this.prisma.todos.findMany({
-                    where: {
-                        activity_group_id: parseInt(activity_group_id)
-                    }
-                });
+                const CACHE_KEY = 'todos_' + activity_group_id;
+
+                // Check if the data is in the cache
+                let todos = cache.get(CACHE_KEY);
+
+                if (!todos) {
+                    todos = await this.prisma.todos.findMany({
+                        where: {
+                            activity_group_id: parseInt(activity_group_id)
+                        }
+                    });
+                    // Save the data in the cache
+                    cache.put(CACHE_KEY, todos, 10000);
+                }
+
+
                 return res.status(200).json(
                     ResponseBuilder.success(todos)
                 );

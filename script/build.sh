@@ -1,1 +1,1 @@
-docker build -t firizky/todolist-api:latest .
+docker build -t firizky29/todolist-api-nodejs:latest .

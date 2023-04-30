@@ -78,7 +78,6 @@ class ActivityController extends BaseController {
     update = async (req, res) => {
         try {
             const id = req.params.id;
-            console.log(id)
             if(!id || isNaN(id)) {
                 return res.status(404).json(
                     ResponseBuilder.err(404, `Activity with ID ${id} Not Found`)
