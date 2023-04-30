@@ -1,0 +1,1 @@
+docker run -e API_URL=http://host.docker.internal:3030 --name devcode-unit-test-1 monsterup/devcode-unit-test-1 

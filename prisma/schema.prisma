@@ -36,7 +36,7 @@ model todos {
   id                Int        @id @default(autoincrement()) @map("todo_id")
   activity_group_id Int
   title             String
-  priority          Int
+  priority          String     @default("very-high")
   is_active         Boolean
   createdAt         DateTime   @default(now()) @map("created_at")
   updatedAt         DateTime   @updatedAt @map("updated_at")

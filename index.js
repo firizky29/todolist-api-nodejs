@@ -4,7 +4,9 @@ import bodyParser from "body-parser"
 import morgan from "morgan"
 import cors from "cors"
 import { CONFIG } from "./constants/config.js"
+
 import ActivityRoute from "./routes/ActivityRoute.js"
+import ToDoRoute from "./routes/ToDoRoute.js"
 
 
 class App {
@@ -25,6 +27,7 @@ class App {
 
     _setRoutes = () => {
         this.app.use("/activity-groups", ActivityRoute)
+        this.app.use("/todo-items", ToDoRoute)
     }
 
     start = () => {
